@@ -17,6 +17,7 @@ body {
     font-family: $defaultFont;
     font-weight: $lightWeight;
     min-width: 320px;
+    background-color: #400106;
 }
 
 
@@ -24,7 +25,7 @@ body {
 #headerWrapper {border-bottom: 1px solid $greyColor;}
 header {
     display: grid;
-    grid-template-columns: 50px auto;
+    grid-template-columns: 50px 1fr auto;
     column-gap: $gutter;
     align-items: center; //vertically
     padding: .5rem $gutter;
@@ -33,21 +34,67 @@ header {
         font-weight: $lightWeight;
         color: $primaryColor;
     }
+    .phone {
+        grid-column: 3/4;
+        text-align: right;
+        text-decoration: none;
+        color: #ffffff;
+    }
+
 } // end header
 
 
 /* --------------------------- NAVIGATION STUFF GOES HERE --------------------------- */
 
 
+#navWrapper {
+    background-color: #730202;
+}
 
+nav {
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        text-align: center;
 
+        li {
+            flex: 1;
+        }
+    }
 
+    li.active {
+        background-color: #400106;
+        border-radius: 8px;
+        color: black;
+    }
 
+    a {
+        display: block;
+        padding: 0.75rem;
+        color: white;
+        text-decoration: none;
 
+        &:hover {
+            color: white;
+            background-color: #400106;
+        };
 
+    }
+}
 
+@media (max-width: 500px) {
+    nav ul{
+        flex-direction: column;
+    }
 
-
+    nav li {
+        flex: unset;
+        text-align: left;
+    }
+    
+}
 
 
 
@@ -56,8 +103,8 @@ main {
     h1 {
         padding: 1rem $gutter.5rem $gutter;
         font-size: 1.5rem;
-        color: $secondaryColor;
-        font-weight: $lightWeight
+        color: $primaryColor;
+        font-weight: bold;
     }
     p {
         padding: .5rem $gutter;
@@ -65,6 +112,34 @@ main {
         line-height: $leading;
     }
 }// end main
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 5rem;
+    padding: 1rem;
+
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 0px;
+        border-radius: 8px;
+        background-color: aliceblue;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+
+    p {
+        font-size: small;
+        font-weight: bold;
+        color: $secondaryColor;
+    }
+
+}
 
 
 
@@ -76,8 +151,8 @@ main {
 footer {
     font-size: .85rem;
     padding: 1rem $gutter;
-    color: $greyColor;
+    color: $secondaryColor;
     text-align: center;
     line-height: $leading;
-    a {color: $greyColor;}
+    a {color: $secondaryColor;}
 }// end footer
